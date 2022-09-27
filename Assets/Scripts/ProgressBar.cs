@@ -20,9 +20,9 @@ public class ProgressBar : MonoBehaviour
     void GetCurrentFill()
     {
         current = Mathf.Clamp(current, 0, maximum);
-        float fillAmount = (float)current / (float)maximum;
-        progressImage.fillAmount = fillAmount;
-        percentageText.text = $"{fillAmount*100}%";
+        float fillAmount = Mathf.Round(((float)current / (float)maximum)*100);
+        progressImage.fillAmount = fillAmount/100;
+        percentageText.text = $"{fillAmount}%";
     }
 
     public void SetCurrent(int newCurrent)
