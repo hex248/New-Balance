@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -17,20 +18,20 @@ public class Athlete
     public int id;
     public string athleteName;
     public Sport sport;
-    public Sprite icon;
-    public Sprite sprite;
-    public Sprite sleepSprite;
+    public int iconIDX;
+    public int spriteIDX;
+    public int sleepSpriteIDX;
 
     public bool active = false;
 
-    public Athlete(int id, string name, Sport sport, Sprite icon, Sprite sprite, Sprite sleepSprite)
+    public Athlete(int id, string name, Sport sport, int iconIDX, int spriteIDX, int sleepSpriteIDX)
     {
         this.id = id;
         this.athleteName = name;
         this.sport = sport;
-        this.icon = icon;
-        this.sprite = sprite;
-        this.sleepSprite = sleepSprite;
+        this.iconIDX = iconIDX;
+        this.spriteIDX = spriteIDX;
+        this.sleepSpriteIDX = sleepSpriteIDX;
     }
 }
 
@@ -38,10 +39,11 @@ public class AthleteManager : MonoBehaviour
 {
     public List<Athlete> athletes = new List<Athlete>();
     public Athlete selectedAthlete;
+    public int selectedAthleteIDX;
 
-    [SerializeField] Sprite[] athleteIcons;
-    [SerializeField] Sprite[] athleteSprites;
-    [SerializeField] Sprite[] sleepSprites;
+    public Sprite[] athleteIcons;
+    public Sprite[] athleteSprites;
+    public Sprite[] sleepSprites;
 
     GameManager GM;
     GameSaves GS;
@@ -63,10 +65,16 @@ public class AthleteManager : MonoBehaviour
         CheckActivities();
     }
 
+    void OnApplicationQuit()
+    {
+        GS.SaveAthletes(athletes);
+    }
+
     public Athlete SetAthleteByID(int id)
     {
         Athlete newAthlete = athletes.Find(a => a.id == id);
         selectedAthlete = newAthlete;
+        selectedAthleteIDX = id;
         return newAthlete;
     }
     
@@ -88,23 +96,28 @@ public class AthleteManager : MonoBehaviour
         }
     }
 
-    public void SetAthletes(List<Athlete> savedAthletes = null)
+    public bool SetAthletes(List<Athlete> savedAthletes = null)
     {
         if (savedAthletes != null)
         {
             athletes = savedAthletes;
             selectedAthlete = athletes[0];
+            selectedAthleteIDX = 0;
+            return true;
         }
         else
         {
             athletes.Add(new Athlete(athletes.Count,
-                "campbell",
+                "give me a name",
                 Sport.running,
-                athleteIcons[Random.Range(0, athleteIcons.Length)],
-                athleteSprites[Random.Range(0, athleteSprites.Length)],
-                sleepSprites[Random.Range(0, sleepSprites.Length)]));
+                UnityEngine.Random.Range(0, athleteIcons.Length),
+                UnityEngine.Random.Range(0, athleteSprites.Length),
+                UnityEngine.Random.Range(0, sleepSprites.Length)
+            ));
             selectedAthlete = athletes[0];
+            selectedAthleteIDX = 0;
             GS.SaveAthletes(athletes);
+            return true;
         }
     }
 }

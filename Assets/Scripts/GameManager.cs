@@ -6,13 +6,16 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public bool allDataLoaded;
+    public bool allDataLoaded = false;
+    public bool newlyLoaded = false;
+    public int framesNewlyLoaded = 0;
     AthleteManager AM;
     UIManager UIM;
     GameSaves GS;
 
     void Start()
     {
+        bool athletesLoaded = false;
         AM = FindObjectOfType<AthleteManager>();
         UIM = FindObjectOfType<UIManager>();
         GS = FindObjectOfType<GameSaves>();
@@ -20,10 +23,27 @@ public class GameManager : MonoBehaviour
         // load all data
         var athleteData = GS.LoadAthletes();
         if (athleteData != null) {
-            AM.SetAthletes(athleteData.athletes);
+            athletesLoaded = AM.SetAthletes(athleteData.athletes);
         }
-        else {
-            AM.SetAthletes();
+        else
+        {
+            athletesLoaded = AM.SetAthletes();
+        }
+        if (athletesLoaded)
+        {
+            allDataLoaded = true;
+            newlyLoaded = true;
+        }
+    }
+    void Update()
+    {
+        if (newlyLoaded)
+        {
+            framesNewlyLoaded++;
+            if (framesNewlyLoaded > 1)
+            {
+                newlyLoaded = false;
+            }
         }
     }
 }

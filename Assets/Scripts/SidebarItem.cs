@@ -7,7 +7,7 @@ using TMPro;
 
 public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    AthleteManager athleteManager;
+    AthleteManager AM;
     public Athlete currentAthlete;
     public TextMeshProUGUI nameText;
     public GameObject popup;
@@ -16,13 +16,13 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Start()
     {
-        athleteManager = FindObjectOfType<AthleteManager>();
+        AM = FindObjectOfType<AthleteManager>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        if (currentAthlete != null) {
-            GetComponent<Image>().sprite = currentAthlete.icon;
+        if (currentAthlete.athleteName != "") {
+            GetComponent<Image>().sprite = AM.athleteIcons[currentAthlete.iconIDX];
             nameText.text = currentAthlete.athleteName;
             
             if (hover) {
@@ -32,6 +32,7 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 popup.SetActive(false);
             }
+            currentAthlete = AM.athletes.Find(a => a.id == currentAthlete.id);
         }
         else
         {
@@ -53,7 +54,7 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (currentAthlete != null)
         {
-            athleteManager.SetAthleteByID(currentAthlete.id);
+            AM.SetAthleteByID(currentAthlete.id);
         }
     }
 }
