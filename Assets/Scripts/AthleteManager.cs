@@ -21,6 +21,7 @@ public class Athlete
     public int iconIDX;
     public int spriteIDX;
     public int sleepSpriteIDX;
+    public Activity activity;
 
     public bool active = false;
 
@@ -32,6 +33,24 @@ public class Athlete
         this.iconIDX = iconIDX;
         this.spriteIDX = spriteIDX;
         this.sleepSpriteIDX = sleepSpriteIDX;
+    }
+}
+
+[Serializable]
+public class Activity
+{
+    public float startTimeMS;
+    public float endTimeMS;
+
+    public string name;
+    public Sport sport;
+
+    public Activity(float startTimeMS, float endTimeMS, string name, Sport sport)
+    {
+        this.startTimeMS = startTimeMS;
+        this.endTimeMS = endTimeMS;
+        this.name = name;
+        this.sport = sport;
     }
 }
 
@@ -58,6 +77,8 @@ public class AthleteManager : MonoBehaviour
         // athletes.Add(new Athlete(athletes.Count, "adelina", Sport.running, athleteIcons[Random.Range(0, athleteIcons.Length)], athleteSprites[Random.Range(0, athleteSprites.Length)], sleepSprites[Random.Range(0, sleepSprites.Length)]));
         // selectedAthlete = athletes[0];
         // Debug.Log(athletes[0].athleteName);
+
+        // Debug.Log(DateTime.now);
     }
 
     void Update()
@@ -81,6 +102,11 @@ public class AthleteManager : MonoBehaviour
     public void SetStatusByID(int id, bool active)
     {
         int athleteIndex = athletes.FindIndex(a => a.id == id);
+        if (athletes[athleteIndex].active)
+        {
+            // ending exercise
+            athletes[athleteIndex].activity = null;
+        }
         athletes[athleteIndex].active = active;
     }
 
@@ -91,7 +117,15 @@ public class AthleteManager : MonoBehaviour
             Athlete a = athletes[i];
             if (a.active)
             {
-                // check start time 
+                DateTime currentDate = new DateTime();
+                float timeMS = Mathf.Abs((long)(currentDate - new DateTime(1970, 1, 1)).TotalMilliseconds);
+                Debug.Log(timeMS);
+                if (timeMS >= a.activity.endTimeMS)
+                {
+                    // check how long the activity was
+                    float activityDuration = a.activity.endTimeMS - a.activity.startTimeMS;
+                    athletes[i].active = false;
+                }
             }
         }
     }
@@ -119,5 +153,28 @@ public class AthleteManager : MonoBehaviour
             GS.SaveAthletes(athletes);
             return true;
         }
+    }
+
+    public void StartActivity(int hours, Sport sport)
+    {
+        SetStatusByID(selectedAthlete.id, true);
+
+        // 1 game hour is 10 minutes in realtime
+        Debug.Log(DateTime.Now);
+
+        DateTime currentDate = new DateTime();
+        float timeMS = Mathf.Abs((long)(currentDate - new DateTime(1970, 1, 1)).TotalMilliseconds);
+        Debug.Log(timeMS);
+        // 10 mins in ms is 600 000
+        float taskDuration = 600000 * hours;
+        float startTime = timeMS;
+        float endTime = startTime + taskDuration;
+
+        athletes[selectedAthleteIDX].activity = new Activity(startTime, endTime, $"{hours} hour(s) {sport}", sport);
+    }
+
+    public void StopActivity()
+    {
+        
     }
 }

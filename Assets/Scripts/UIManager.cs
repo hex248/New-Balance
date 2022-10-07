@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI selectedAthleteStatus;
     public SpriteRenderer selectedAthleteSprite;
 
+    [SerializeField] GameObject testRunButton;
+    [SerializeField] GameObject testStopRunButton;
+
     AthleteManager AM;
     GameManager GM;
 
@@ -65,6 +68,17 @@ public class UIManager : MonoBehaviour
         {
             sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
         }
+
+        if (AM.athletes[AM.selectedAthleteIDX].active)
+        {
+            testRunButton.SetActive(false);
+            testStopRunButton.SetActive(true);
+        }
+        else
+        {
+            testRunButton.SetActive(true);
+            testStopRunButton.SetActive(false);
+        }
     }
 
     public void ToggleCurrentStatus() {
@@ -78,5 +92,15 @@ public class UIManager : MonoBehaviour
             Debug.Log(selectedAthleteNameInputField.text);
             AM.selectedAthlete.athleteName = selectedAthleteNameInputField.text;
         }
+    }
+
+    public void StartActivity()
+    {
+        AM.StartActivity(8, Sport.running);
+    }
+
+    public void StopActivity()
+    {
+        AM.StopActivity();
     }
 }
