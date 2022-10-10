@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public enum Sport
 {
@@ -39,16 +40,16 @@ public class Athlete
 [Serializable]
 public class Activity
 {
-    public float startTimeMS;
-    public float endTimeMS;
+    public long startUnix;
+    public long endUnix;
 
     public string name;
     public Sport sport;
 
-    public Activity(float startTimeMS, float endTimeMS, string name, Sport sport)
+    public Activity(long startUnix, long endUnix, string name, Sport sport)
     {
-        this.startTimeMS = startTimeMS;
-        this.endTimeMS = endTimeMS;
+        this.startUnix = startUnix;
+        this.endUnix = endUnix;
         this.name = name;
         this.sport = sport;
     }
@@ -67,23 +68,14 @@ public class AthleteManager : MonoBehaviour
     GameManager GM;
     GameSaves GS;
 
+    [SerializeField] GameObject activityProgressBar;
+
     void Start()
     {
         GM = FindObjectOfType<GameManager>();
         GS = FindObjectOfType<GameSaves>();
-        // athletes.Add(new Athlete(athletes.Count, "latif", Sport.running, athleteIcons[Random.Range(0, athleteIcons.Length)], athleteSprites[Random.Range(0, athleteSprites.Length)], sleepSprites[Random.Range(0, sleepSprites.Length)]));
-        // athletes.Add(new Athlete(athletes.Count, "oliver", Sport.basketball, athleteIcons[Random.Range(0, athleteIcons.Length)], athleteSprites[Random.Range(0, athleteSprites.Length)], sleepSprites[Random.Range(0, sleepSprites.Length)]));
-        // athletes.Add(new Athlete(athletes.Count, "trinity", Sport.skateboarding, athleteIcons[Random.Range(0, athleteIcons.Length)], athleteSprites[Random.Range(0, athleteSprites.Length)], sleepSprites[Random.Range(0, sleepSprites.Length)]));
-        // athletes.Add(new Athlete(athletes.Count, "adelina", Sport.running, athleteIcons[Random.Range(0, athleteIcons.Length)], athleteSprites[Random.Range(0, athleteSprites.Length)], sleepSprites[Random.Range(0, sleepSprites.Length)]));
-        // selectedAthlete = athletes[0];
-        // Debug.Log(athletes[0].athleteName);
 
-        // Debug.Log(DateTime.now);
-    }
-
-    void Update()
-    {
-        CheckActivities();
+        StartCoroutine(CheckActivities());
     }
 
     void OnApplicationQuit()
@@ -110,24 +102,39 @@ public class AthleteManager : MonoBehaviour
         athletes[athleteIndex].active = active;
     }
 
-    void CheckActivities()
+    IEnumerator CheckActivities()
     {
-        for (int i = 0; i < athletes.Count; i++)
+        for(;;)
         {
-            Athlete a = athletes[i];
-            if (a.active)
+            for (int i = 0; i < athletes.Count; i++)
             {
-                DateTime currentDate = new DateTime();
-                float timeMS = Mathf.Abs((long)(currentDate - new DateTime(1970, 1, 1)).TotalMilliseconds);
-                Debug.Log(timeMS);
-                if (timeMS >= a.activity.endTimeMS)
+                Athlete a = athletes[i];
+                if (a.active)
                 {
-                    // check how long the activity was
-                    float activityDuration = a.activity.endTimeMS - a.activity.startTimeMS;
-                    athletes[i].active = false;
+                    if (a.id == selectedAthleteIDX)
+                    {
+                        UpdateActivityProgressBar();
+                    }
+                    long unixTime = GetUnixTime();
+                    if (unixTime >= a.activity.endUnix)
+                    {
+                        // check how long the activity was
+                        float activityDuration = a.activity.endUnix - a.activity.startUnix;
+                        athletes[i].active = false;
+                    }
                 }
             }
+            yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    public void UpdateActivityProgressBar()
+    {
+        long unixTime = GetUnixTime();
+                    
+        Activity currentActivity = athletes[selectedAthleteIDX].activity;
+        activityProgressBar.GetComponent<ProgressBar>().maximum = currentActivity.endUnix-currentActivity.startUnix; // activity length
+        activityProgressBar.GetComponent<ProgressBar>().current = unixTime-currentActivity.startUnix; // time since start of activity
     }
 
     public bool SetAthletes(List<Athlete> savedAthletes = null)
@@ -159,22 +166,32 @@ public class AthleteManager : MonoBehaviour
     {
         SetStatusByID(selectedAthlete.id, true);
 
-        // 1 game hour is 10 minutes in realtime
-        Debug.Log(DateTime.Now);
+        // 1 game hour is 10 minutes in realtime (temporarily 1 minute)
 
-        DateTime currentDate = new DateTime();
-        float timeMS = Mathf.Abs((long)(currentDate - new DateTime(1970, 1, 1)).TotalMilliseconds);
-        Debug.Log(timeMS);
-        // 10 mins in ms is 600 000
-        float taskDuration = 600000 * hours;
-        float startTime = timeMS;
-        float endTime = startTime + taskDuration;
+        long unixTime = GetUnixTime();
+
+        // 10 mins in s is 600
+        long taskDuration = 60 * hours; //!CHANGE TO 600 WHEN DONE TESTING
+        long startTime = unixTime;
+        long endTime = startTime + taskDuration;
 
         athletes[selectedAthleteIDX].activity = new Activity(startTime, endTime, $"{hours} hour(s) {sport}", sport);
+        
+        UpdateActivityProgressBar();
     }
 
     public void StopActivity()
     {
-        
+        SetStatusByID(selectedAthlete.id, false);
+
+        athletes[selectedAthleteIDX].activity = null;
+    }
+
+    long GetUnixTime()
+    {
+        DateTime time = DateTime.Now;
+        long unixTime = ((DateTimeOffset)time).ToUnixTimeSeconds();
+        return unixTime;
     }
 }
+

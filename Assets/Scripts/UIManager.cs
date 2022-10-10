@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject testRunButton;
     [SerializeField] GameObject testStopRunButton;
+    [SerializeField] GameObject progressBar;
 
     AthleteManager AM;
     GameManager GM;
@@ -73,11 +74,13 @@ public class UIManager : MonoBehaviour
         {
             testRunButton.SetActive(false);
             testStopRunButton.SetActive(true);
+            progressBar.SetActive(true);
         }
         else
         {
             testRunButton.SetActive(true);
             testStopRunButton.SetActive(false);
+            progressBar.SetActive(false);
         }
     }
 
@@ -89,7 +92,6 @@ public class UIManager : MonoBehaviour
     {
         if (selectedAthleteNameInputField.text != "")
         {
-            Debug.Log(selectedAthleteNameInputField.text);
             AM.selectedAthlete.athleteName = selectedAthleteNameInputField.text;
         }
     }

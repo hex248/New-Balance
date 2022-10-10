@@ -1517,14 +1517,184 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
   nameText: {fileID: 990928824}
   popup: {fileID: 361820486}
   hover: 0
+--- !u!1001 &469883126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 481029673}
+    m_Modifications:
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: current
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.g
+      value: 0.48235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972538614375312307, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 346.4795
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972538614375312307, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000014901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616913, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Name
+      value: Activity Progress
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -676.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845824, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845824, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.528
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+--- !u!224 &469883127 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8331619473719616926, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+  m_PrefabInstance: {fileID: 469883126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &481029672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1727,7 @@ RectTransform:
   - {fileID: 786989944}
   - {fileID: 866332761}
   - {fileID: 1060376416}
+  - {fileID: 469883127}
   m_Father: {fileID: 1537439689}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4465,6 +4636,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1234042418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331619473719616913, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+  m_PrefabInstance: {fileID: 469883126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237966562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,8 +5233,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
@@ -5105,8 +5281,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
@@ -5119,6 +5295,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e82cf76a03e60647af386a1f48a23ce, type: 3}
   sleepSprites:
   - {fileID: 21300000, guid: 5cdb7e8dac893ca4b8325e49640956aa, type: 3}
+  activityProgressBar: {fileID: 1234042418}
 --- !u!4 &1413106581
 Transform:
   m_ObjectHideFlags: 0
@@ -5590,6 +5767,7 @@ MonoBehaviour:
   selectedAthleteSprite: {fileID: 1023820843}
   testRunButton: {fileID: 1060376415}
   testStopRunButton: {fileID: 866332760}
+  progressBar: {fileID: 1234042418}
 --- !u!1 &1563797560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,8 +6575,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
@@ -6574,8 +6752,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
@@ -6888,8 +7066,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
@@ -7357,8 +7535,8 @@ MonoBehaviour:
     spriteIDX: 0
     sleepSpriteIDX: 0
     activity:
-      startTimeMS: 0
-      endTimeMS: 0
+      startUnix: 0
+      endUnix: 0
       name: 
       sport: 0
     active: 0
