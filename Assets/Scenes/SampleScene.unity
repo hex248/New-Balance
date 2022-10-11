@@ -1688,6 +1688,26 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 0.528
       objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_text
+      value: 0%
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
 --- !u!224 &469883127 stripped
@@ -4020,7 +4040,7 @@ GameObject:
   - component: {fileID: 1060376418}
   - component: {fileID: 1060376417}
   m_Layer: 5
-  m_Name: 8 hour run
+  m_Name: 1km run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4774,7 +4794,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: start 8 hr run
+  m_text: 'start 1km run
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7557,6 +7579,38 @@ PrefabInstance:
     - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
       propertyPath: maximum
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.g
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: backgroundColour.r
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.b
+      value: 0.41243485
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.g
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341809742925115624, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: foregroundColour.r
+      value: 0.29236382
       objectReference: {fileID: 0}
     - target: {fileID: 8331619473719616913, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
       propertyPath: m_Name

@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -228,6 +228,8 @@ MonoBehaviour:
   current: 75
   progressImage: {fileID: 8331619474610845825}
   percentageText: {fileID: 8546789239481889684}
+  foregroundColour: {r: 0.10693307, g: 0.6449053, b: 0.8396226, a: 1}
+  backgroundColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &8331619474610845827
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5709772, g: 0.8584906, b: 0.6062562, a: 1}
+  m_Color: {r: 0.10693307, g: 0.6449053, b: 0.8396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
