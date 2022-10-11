@@ -119,7 +119,14 @@ public class AthleteManager : MonoBehaviour
                     if (unixTime >= a.activity.endUnix)
                     {
                         // check how long the activity was
-                        float activityDuration = a.activity.endUnix - a.activity.startUnix;
+                        long activityDuration = a.activity.endUnix - a.activity.startUnix;
+                        // 1 second realtime = 1 credit & 1.5 xp
+                        // calculate rewards
+                        float creditMultiplier = 1.0f;
+                        int credits = (int)Mathf.Round(activityDuration * creditMultiplier);
+                        float xpMultiplier = 1.5f;
+                        int xp = (int)Mathf.Round(activityDuration * xpMultiplier);
+
                         athletes[i].active = false;
                     }
                 }
