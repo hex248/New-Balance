@@ -26,16 +26,6 @@ public class GameSaves : MonoBehaviour
         file.Close();
     }
 
-    public void SavePlayer(Player toSave)
-    {
-        BinaryFormatter bf = new BinaryFormatter(); 
-        FileStream file = File.Create(playerFilePath); 
-        PlayerSave data = new PlayerSave();
-        data.player = toSave;
-        bf.Serialize(file, data);
-        file.Close();
-    }
-
     public AthleteSave LoadAthletes()
     {
         if (File.Exists(athleteFilePath))
@@ -50,6 +40,16 @@ public class GameSaves : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public void SavePlayer(Player toSave)
+    {
+        BinaryFormatter bf = new BinaryFormatter(); 
+        FileStream file = File.Create(playerFilePath); 
+        PlayerSave data = new PlayerSave();
+        data.player = toSave;
+        bf.Serialize(file, data);
+        file.Close();
     }
 
     public PlayerSave LoadPlayer()

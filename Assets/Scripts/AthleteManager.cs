@@ -67,6 +67,7 @@ public class AthleteManager : MonoBehaviour
 
     GameManager GM;
     GameSaves GS;
+    PlayerManager PM;
 
     [SerializeField] GameObject activityProgressBar;
 
@@ -74,6 +75,7 @@ public class AthleteManager : MonoBehaviour
     {
         GM = FindObjectOfType<GameManager>();
         GS = FindObjectOfType<GameSaves>();
+        PM = FindObjectOfType<PlayerManager>();
 
         StartCoroutine(CheckActivities());
     }
@@ -124,8 +126,11 @@ public class AthleteManager : MonoBehaviour
                         // calculate rewards
                         float creditMultiplier = 1.0f;
                         int credits = (int)Mathf.Round(activityDuration * creditMultiplier);
-                        float xpMultiplier = 1.5f;
+                        float xpMultiplier = 3f; //! 1.5f
                         int xp = (int)Mathf.Round(activityDuration * xpMultiplier);
+
+                        PM.AddCredits(credits);
+                        PM.AddXP(xp);
 
                         athletes[i].active = false;
                     }
@@ -178,7 +183,7 @@ public class AthleteManager : MonoBehaviour
         long unixTime = GetUnixTime();
 
         // 10 mins in s is 600
-        long taskDuration = 60 * hours; //!CHANGE TO 600 WHEN DONE TESTING
+        long taskDuration = 60;//! * hours; //!CHANGE TO 600 WHEN DONE TESTING
         long startTime = unixTime;
         long endTime = startTime + taskDuration;
 

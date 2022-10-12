@@ -25,13 +25,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject testStopRunButton;
     [SerializeField] GameObject progressBar;
 
+    [SerializeField] ProgressBar levelProgress;
+    [SerializeField] TextMeshProUGUI levelText;
+
     AthleteManager AM;
+    PlayerManager PM;
     GameManager GM;
 
 
     void Start()
     {
         AM = FindObjectOfType<AthleteManager>();
+        PM = FindObjectOfType<PlayerManager>();
         GM = FindObjectOfType<GameManager>();
     }
 
@@ -82,6 +87,10 @@ public class UIManager : MonoBehaviour
             testStopRunButton.SetActive(false);
             progressBar.SetActive(false);
         }
+
+        levelProgress.maximum = PM.player.xpNeeded;
+        levelProgress.current = PM.player.xp;
+        levelText.text = $"LVL {PM.player.level}";
     }
 
     public void ToggleCurrentStatus() {

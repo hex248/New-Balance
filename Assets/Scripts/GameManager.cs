@@ -10,26 +10,39 @@ public class GameManager : MonoBehaviour
     public bool newlyLoaded = false;
     public int framesNewlyLoaded = 0;
     AthleteManager AM;
+    PlayerManager PM;
     UIManager UIM;
     GameSaves GS;
 
     void Start()
     {
         bool athletesLoaded = false;
+        bool playerLoaded = false;
         AM = FindObjectOfType<AthleteManager>();
+        PM = FindObjectOfType<PlayerManager>();
         UIM = FindObjectOfType<UIManager>();
         GS = FindObjectOfType<GameSaves>();
 
         // load all data
         var athleteData = GS.LoadAthletes();
-        if (athleteData != null) {
+        if (athleteData != null)
+        {
             athletesLoaded = AM.SetAthletes(athleteData.athletes);
         }
         else
         {
             athletesLoaded = AM.SetAthletes();
         }
-        if (athletesLoaded)
+        var playerData = GS.LoadPlayer();
+        if (playerData != null)
+        {
+            playerLoaded = PM.SetPlayer(playerData.player);
+        }
+        else
+        {
+            playerLoaded = PM.SetPlayer();
+        }
+        if (athletesLoaded && playerLoaded)
         {
             allDataLoaded = true;
             newlyLoaded = true;
