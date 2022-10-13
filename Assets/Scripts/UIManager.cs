@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] ProgressBar levelProgress;
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI creditText;
 
     AthleteManager AM;
     PlayerManager PM;
@@ -90,6 +91,7 @@ public class UIManager : MonoBehaviour
         levelProgress.maximum = PM.player.xpNeeded;
         levelProgress.current = PM.player.xp;
         levelText.text = $"LVL {PM.player.level}";
+        creditText.text = $"Credits: {PM.player.credits}";
     }
 
     public void ToggleCurrentStatus() {

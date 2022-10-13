@@ -39,10 +39,10 @@ public class Athlete
         this.iconIDX = iconIDX;
         this.spriteIDX = spriteIDX;
         this.sleepSpriteIDX = sleepSpriteIDX;
-        // this.hairRGB = new int[] {30,25,20};
-        // this.skinRGB = new int[] {207,181,155};
-        // this.bodyRGB = new int[] {80,125,199};
-        // this.feetRGB = new int[] {71,71,71};
+        this.hairRGB = new int[] {30,25,20};
+        this.skinRGB = new int[] {207,181,155};
+        this.bodyRGB = new int[] {80,125,199};
+        this.feetRGB = new int[] {71,71,71};
     }
 }
 
