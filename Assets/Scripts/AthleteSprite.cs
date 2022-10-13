@@ -17,7 +17,12 @@ public class AthleteSprite : MonoBehaviour
 
     void Update()
     {
-        // skin.GetComponent<SpriteRenderer>().color = 
+        int[] s = AM.selectedAthlete.skinRGB;
+        skin.GetComponent<SpriteRenderer>().color = new Color(s[0] / 255.0f, s[1] / 255.0f, s[2] / 255.0f);
+        int[] b = AM.selectedAthlete.bodyRGB;
+        body.GetComponent<SpriteRenderer>().color = new Color(b[0] / 255.0f, b[1] / 255.0f, b[2] / 255.0f);
+        int[] f = AM.selectedAthlete.feetRGB;
+        feet.GetComponent<SpriteRenderer>().color = new Color(f[0] / 255.0f, f[1] / 255.0f, f[2] / 255.0f);
         if (AM.athletes[AM.selectedAthleteIDX].active)
         {
             skin.GetComponent<Animator>().SetBool("running", true);

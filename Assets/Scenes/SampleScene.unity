@@ -1387,6 +1387,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 990928824}
   popup: {fileID: 361820486}
@@ -3576,11 +3580,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1557267295
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1698696623906301260, guid: 137a3344f39a91d4ca450d37e63a7697, type: 3}
-  m_Color: {r: 0.72300005, g: 0.59109, b: 0.333303, a: 1}
+  m_Color: {r: 0.3479886, g: 1, b: 0.39332414, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4682,11 +4686,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 323043567
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5606351447977730624, guid: 9d14efbe81bdd834c916fd853af77ec0, type: 3}
-  m_Color: {r: 0, g: 0.004937829, b: 0.6603774, a: 1}
+  m_Color: {r: 0.5213883, g: 0.083704144, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5299,6 +5303,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 664858679}
   popup: {fileID: 2052211210}
@@ -5347,6 +5355,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   selectedAthleteIDX: 0
   athleteIcons:
@@ -5956,11 +5968,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 410265407
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8687066663751153079, guid: fb4026fe67cccde44a9d764711c6fcbb, type: 3}
-  m_Color: {r: 0.5188679, g: 0.37659675, b: 0.32062122, a: 1}
+  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6792,6 +6804,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 584896154}
   popup: {fileID: 12572218}
@@ -6969,6 +6985,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 1047146656}
   popup: {fileID: 67589514}
@@ -7294,6 +7314,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 501184671}
   popup: {fileID: 1237966562}
@@ -7763,6 +7787,10 @@ MonoBehaviour:
       endUnix: 0
       name: 
       sport: 0
+    hairRGB: 
+    skinRGB: 
+    bodyRGB: 
+    feetRGB: 
     active: 0
   nameText: {fileID: 2145470464}
   popup: {fileID: 117163526}
