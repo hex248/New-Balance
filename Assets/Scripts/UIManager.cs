@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour
     public TMP_InputField selectedAthleteNameInputField;
     public TextMeshProUGUI selectedAthleteSport;
     public TextMeshProUGUI selectedAthleteStatus;
-    public SpriteRenderer selectedAthleteSprite;
 
     [SerializeField] GameObject testRunButton;
     [SerializeField] GameObject testStopRunButton;
@@ -61,14 +60,14 @@ public class UIManager : MonoBehaviour
         selectedAthleteSport.text = $"Sport: {AM.selectedAthlete.sport}";
         selectedAthleteStatus.text = AM.selectedAthlete.active ? "Active" : "Asleep";
 
-        if (AM.selectedAthlete.active)
-        {
-            selectedAthleteSprite.sprite = AM.athleteSprites[AM.selectedAthlete.spriteIDX];
-        }
-        else
-        {
-            selectedAthleteSprite.sprite = AM.sleepSprites[AM.selectedAthlete.sleepSpriteIDX];
-        }
+        // if (AM.selectedAthlete.active)
+        // {
+        //     selectedAthleteSprite.sprite = AM.athleteSprites[AM.selectedAthlete.spriteIDX];
+        // }
+        // else
+        // {
+        //     selectedAthleteSprite.sprite = AM.sleepSprites[AM.selectedAthlete.sleepSpriteIDX];
+        // }
 
         for (int i = 0; i < AM.athletes.Count; i++)
         {
