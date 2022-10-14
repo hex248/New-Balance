@@ -921,13 +921,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1537439690}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: UIButtonPress
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: leaderboard
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &284890574
@@ -4199,13 +4199,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1537439690}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: UIButtonPress
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: sponsors
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1093576550
@@ -4455,7 +4455,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 47
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -4466,7 +4466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SHOP
+  m_Text: CUSTOMISE
 --- !u!222 &1180232078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5697,18 +5697,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 55
+    m_MaxSize: 56
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ATHLETES
+  m_Text: SHOP
 --- !u!222 &1524453397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7038,7 +7038,7 @@ GameObject:
   - component: {fileID: 2058193828}
   - component: {fileID: 2058193827}
   m_Layer: 5
-  m_Name: Athletes
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7111,13 +7111,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1537439690}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: UIButtonPress
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: shop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2058193828
@@ -7280,7 +7280,7 @@ GameObject:
   - component: {fileID: 2136481332}
   - component: {fileID: 2136481331}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: Customise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7353,13 +7353,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1537439690}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: UIButtonPress
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: customise
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2136481332

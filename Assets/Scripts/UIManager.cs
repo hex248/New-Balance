@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public enum ButtonType {
     shop,
-    athletes,
+    customisation,
     sponsors,
     leaderboard
 }
@@ -40,10 +41,16 @@ public class UIManager : MonoBehaviour
         GM = FindObjectOfType<GameManager>();
     }
 
-    public void UIButtonPress(int num)
+    public void UIButtonPress(string buttonType)
     {
-        ButtonType buttonType = (ButtonType)num;
-        Debug.Log(buttonType);
+        if (buttonType == "customise")
+        {
+            SceneManager.LoadScene("Customise");
+        }
+        else if (buttonType == "home")
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 
     private void LateUpdate()
@@ -52,46 +59,66 @@ public class UIManager : MonoBehaviour
         {
             return;
         }
-        if (GM.newlyLoaded)
+
+        if (SceneManager.GetActiveScene().name == "Main")
         {
-            selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
+            if (GM.newlyLoaded)
+            {
+                selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
+            }
+            selectedAthleteName.text = AM.selectedAthlete.athleteName;
+            selectedAthleteSport.text = $"Sport: {AM.selectedAthlete.sport}";
+            selectedAthleteStatus.text = AM.selectedAthlete.active ? "Active" : "Asleep";
+
+            // if (AM.selectedAthlete.active)
+            // {
+            //     selectedAthleteSprite.sprite = AM.athleteSprites[AM.selectedAthlete.spriteIDX];
+            // }
+            // else
+            // {
+            //     selectedAthleteSprite.sprite = AM.sleepSprites[AM.selectedAthlete.sleepSpriteIDX];
+            // }
+
+            for (int i = 0; i < AM.athletes.Count; i++)
+            {
+                sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
+            }
+
+            if (AM.athletes[AM.selectedAthleteIDX].active)
+            {
+                testRunButton.SetActive(false);
+                testStopRunButton.SetActive(true);
+                progressBar.SetActive(true);
+            }
+            else
+            {
+                testRunButton.SetActive(true);
+                testStopRunButton.SetActive(false);
+                progressBar.SetActive(false);
+            }
+
+            levelProgress.maximum = PM.player.xpNeeded;
+            levelProgress.current = PM.player.xp;
+            levelText.text = $"LVL {PM.player.level}";
+            creditText.text = $"Credits: {PM.player.credits}";
         }
-
-        selectedAthleteName.text = AM.selectedAthlete.athleteName;
-        selectedAthleteSport.text = $"Sport: {AM.selectedAthlete.sport}";
-        selectedAthleteStatus.text = AM.selectedAthlete.active ? "Active" : "Asleep";
-
-        // if (AM.selectedAthlete.active)
-        // {
-        //     selectedAthleteSprite.sprite = AM.athleteSprites[AM.selectedAthlete.spriteIDX];
-        // }
-        // else
-        // {
-        //     selectedAthleteSprite.sprite = AM.sleepSprites[AM.selectedAthlete.sleepSpriteIDX];
-        // }
-
-        for (int i = 0; i < AM.athletes.Count; i++)
+        else if (SceneManager.GetActiveScene().name == "Customise")
         {
-            sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
-        }
+            if (GM.newlyLoaded)
+            {
+                selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
+            }
+            
+            for (int i = 0; i < AM.athletes.Count; i++)
+            {
+                sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
+            }
 
-        if (AM.athletes[AM.selectedAthleteIDX].active)
-        {
-            testRunButton.SetActive(false);
-            testStopRunButton.SetActive(true);
-            progressBar.SetActive(true);
+            levelProgress.maximum = PM.player.xpNeeded;
+            levelProgress.current = PM.player.xp;
+            levelText.text = $"LVL {PM.player.level}";
+            creditText.text = $"Credits: {PM.player.credits}";
         }
-        else
-        {
-            testRunButton.SetActive(true);
-            testStopRunButton.SetActive(false);
-            progressBar.SetActive(false);
-        }
-
-        levelProgress.maximum = PM.player.xpNeeded;
-        levelProgress.current = PM.player.xp;
-        levelText.text = $"LVL {PM.player.level}";
-        creditText.text = $"Credits: {PM.player.credits}";
     }
 
     public void ToggleCurrentStatus() {

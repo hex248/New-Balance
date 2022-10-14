@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AthleteSprite : MonoBehaviour
 {
-    [SerializeField] GameObject skin;
-    [SerializeField] GameObject body;
-    [SerializeField] GameObject feet;
+    public GameObject skin;
+    public GameObject body;
+    public GameObject feet;
 
     AthleteManager AM;
 
