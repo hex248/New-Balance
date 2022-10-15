@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] TextMeshProUGUI creditText;
 
+    [SerializeField] GameObject[] variableElements;
+
     AthleteManager AM;
     PlayerManager PM;
     GameManager GM;
@@ -45,27 +47,31 @@ public class UIManager : MonoBehaviour
     {
         if (buttonType == "customise")
         {
-            SceneManager.LoadScene("Customise");
+            GM.LoadScene("Customise");
         }
         else if (buttonType == "home")
         {
-            SceneManager.LoadScene("Main");
+            GM.LoadScene("Main");
         }
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (!GM.allDataLoaded)
         {
+            HideDynamic();
             return;
         }
+        
+        if (GM.newlyLoaded)
+        {
+            ShowDynamic();
+            selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
+        }
+        
 
         if (SceneManager.GetActiveScene().name == "Main")
         {
-            if (GM.newlyLoaded)
-            {
-                selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
-            }
             selectedAthleteName.text = AM.selectedAthlete.athleteName;
             selectedAthleteSport.text = $"Sport: {AM.selectedAthlete.sport}";
             selectedAthleteStatus.text = AM.selectedAthlete.active ? "Active" : "Asleep";
@@ -104,14 +110,18 @@ public class UIManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Customise")
         {
-            if (GM.newlyLoaded)
-            {
-                selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
-            }
-            
             for (int i = 0; i < AM.athletes.Count; i++)
             {
                 sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
+            }
+
+            if (AM.athletes[AM.selectedAthleteIDX].active)
+            {
+                progressBar.SetActive(true);
+            }
+            else
+            {
+                progressBar.SetActive(false);
             }
 
             levelProgress.maximum = PM.player.xpNeeded;
@@ -141,5 +151,21 @@ public class UIManager : MonoBehaviour
     public void StopActivity()
     {
         AM.StopActivity();
+    }
+
+    void HideDynamic()
+    {
+        for (int i = 0; i < variableElements.Length; i++)
+        {
+            variableElements[i].SetActive(false);
+        }
+    }
+
+    void ShowDynamic()
+    {
+        for (int i = 0; i < variableElements.Length; i++)
+        {
+            variableElements[i].SetActive(true);
+        }
     }
 }

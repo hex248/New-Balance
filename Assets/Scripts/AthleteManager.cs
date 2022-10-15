@@ -78,15 +78,22 @@ public class AthleteManager : MonoBehaviour
     GameSaves GS;
     PlayerManager PM;
 
-    [SerializeField] GameObject activityProgressBar;
+    [SerializeField] ProgressBar activityProgressBar;
 
     void Start()
     {
         GM = FindObjectOfType<GameManager>();
         GS = FindObjectOfType<GameSaves>();
         PM = FindObjectOfType<PlayerManager>();
-
+    }
+    void Awake()
+    {
         StartCoroutine(CheckActivities());
+    }
+
+    void Update()
+    {
+        UpdateActivityProgressBar();
     }
 
     void OnApplicationQuit()
@@ -122,10 +129,6 @@ public class AthleteManager : MonoBehaviour
                 Athlete a = athletes[i];
                 if (a.active)
                 {
-                    if (a.id == selectedAthleteIDX)
-                    {
-                        UpdateActivityProgressBar();
-                    }
                     long unixTime = GetUnixTime();
                     if (unixTime >= a.activity.endUnix)
                     {
@@ -135,7 +138,7 @@ public class AthleteManager : MonoBehaviour
                         // calculate rewards
                         float creditMultiplier = 1.0f;
                         int credits = (int)Mathf.Round(activityDuration * creditMultiplier);
-                        float xpMultiplier = 3f; //! 1.5f
+                        float xpMultiplier = 1.5f;
                         int xp = (int)Mathf.Round(activityDuration * xpMultiplier);
 
                         PM.AddCredits(credits);
@@ -154,8 +157,8 @@ public class AthleteManager : MonoBehaviour
         long unixTime = GetUnixTime();
                     
         Activity currentActivity = athletes[selectedAthleteIDX].activity;
-        activityProgressBar.GetComponent<ProgressBar>().maximum = currentActivity.endUnix-currentActivity.startUnix; // activity length
-        activityProgressBar.GetComponent<ProgressBar>().current = unixTime-currentActivity.startUnix; // time since start of activity
+        activityProgressBar.maximum = currentActivity.endUnix-currentActivity.startUnix; // activity length
+        activityProgressBar.current = unixTime-currentActivity.startUnix; // time since start of activity
     }
 
     public bool SetAthletes(List<Athlete> savedAthletes = null)
@@ -197,8 +200,6 @@ public class AthleteManager : MonoBehaviour
         long endTime = startTime + taskDuration;
 
         athletes[selectedAthleteIDX].activity = new Activity(startTime, endTime, $"{hours} hour(s) {sport}", sport);
-        
-        UpdateActivityProgressBar();
     }
 
     public void StopActivity()

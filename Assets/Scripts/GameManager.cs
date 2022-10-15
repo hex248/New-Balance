@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
@@ -58,5 +59,17 @@ public class GameManager : MonoBehaviour
                 newlyLoaded = false;
             }
         }
+    }
+
+    public void LoadScene(string name)
+    {
+        SaveAll();
+        SceneManager.LoadScene(name);
+    }
+
+    public void SaveAll()
+    {
+        GS.SavePlayer(PM.player);
+        GS.SaveAthletes(AM.athletes);
     }
 }
