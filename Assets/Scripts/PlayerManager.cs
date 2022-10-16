@@ -12,6 +12,7 @@ public class Player
     public int xp;
     public int xpNeeded;
     public int level;
+    public List<string> purchasedClothes = new List<string>();
 
     public Player(int credits, int xp, int xpNeeded, int level)
     {

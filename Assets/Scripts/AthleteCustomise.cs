@@ -21,17 +21,22 @@ public class AthleteCustomise : MonoBehaviour
 {
     AthleteSprite AS;
     AthleteManager AM;
+    PlayerManager PM;
     GameObject selectedPart;
     [SerializeField] TextMeshProUGUI selectedPartText;
 
     [SerializeField] GameObject skinPalette;
     [SerializeField] GameObject bodyPalette;
 
+    [SerializeField] PurchaseWindow purchaseWindow;
+
     void Start()
     {
         AS = FindObjectOfType<AthleteSprite>();
         AM = FindObjectOfType<AthleteManager>();
+        PM = FindObjectOfType<PlayerManager>();
         selectedPart = AS.skin;
+        purchaseWindow.gameObject.SetActive(false);
     }
 
     void Update()
@@ -83,24 +88,43 @@ public class AthleteCustomise : MonoBehaviour
             bodyPalette.SetActive(false);
             selectedPartText.text = "";
         }
+
+        for (int i = 0; i < PM.player.purchasedClothes.Count; i++)
+        {
+            GameObject paletteItem = GameObject.Find(PM.player.purchasedClothes[i]);
+            if (paletteItem != null) paletteItem.GetComponent<PaletteItem>().locked = false;
+        }
     }
 
-    public void ChangeColour()
+    public void ChangeColour(Color newColour)
     {
         if (selectedPart != null && selectedPart.name == "body")
         {
-            Color desiredColour = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
-            AM.athletes[AM.selectedAthleteIDX].bodyRGB = new int[] {(int)Mathf.Round(desiredColour.r * 255), (int)Mathf.Round(desiredColour.g * 255), (int)Mathf.Round(desiredColour.b * 255)};
+            AM.athletes[AM.selectedAthleteIDX].bodyRGB = new int[] {(int)Mathf.Round(newColour.r * 255), (int)Mathf.Round(newColour.g * 255), (int)Mathf.Round(newColour.b * 255)};
         }
         else if (selectedPart != null && selectedPart.name == "skin")
         {
-            Color desiredColour = EventSystem.current.currentSelectedGameObject.GetComponent<Image>().color;
-            AM.athletes[AM.selectedAthleteIDX].skinRGB = new int[] {(int)Mathf.Round(desiredColour.r * 255), (int)Mathf.Round(desiredColour.g * 255), (int)Mathf.Round(desiredColour.b * 255)};
+            AM.athletes[AM.selectedAthleteIDX].skinRGB = new int[] {(int)Mathf.Round(newColour.r * 255), (int)Mathf.Round(newColour.g * 255), (int)Mathf.Round(newColour.b * 255)};
         }
     }
 
     string Capitalise(string word)
     {
         return char.ToUpper(word[0]) + word.Substring(1);
+    }
+    
+    public void PurchaseWindow(GameObject gameObject)
+    {
+        purchaseWindow.gameObject.SetActive(true);
+        purchaseWindow.desiredColour = gameObject.GetComponent<Image>().color;
+        purchaseWindow.type = "clothing"; //!HARDCODED FIX LATER
+        purchaseWindow.id = gameObject.name;
+        purchaseWindow.price = gameObject.GetComponent<PaletteItem>().price;
+    }
+
+    public void HidePurchaseWindow()
+    {
+        purchaseWindow.insufficientFunds.SetActive(false);
+        purchaseWindow.gameObject.SetActive(false);
     }
 }
