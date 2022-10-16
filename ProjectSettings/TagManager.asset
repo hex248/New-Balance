@@ -47,6 +47,9 @@ TagManager:
   - name: feet
     uniqueID: 410265407
     locked: 0
+  - name: shoes
+    uniqueID: 531558043
+    locked: 0
   - name: body
     uniqueID: 323043567
     locked: 0

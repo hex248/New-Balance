@@ -93,6 +93,10 @@ public class AthleteManager : MonoBehaviour
 
     void Update()
     {
+        if (!GM.allDataLoaded)
+        {
+            return;
+        }
         UpdateActivityProgressBar();
     }
 
@@ -154,6 +158,8 @@ public class AthleteManager : MonoBehaviour
 
     public void UpdateActivityProgressBar()
     {
+        if (!athletes[selectedAthleteIDX].active) return;
+        
         long unixTime = GetUnixTime();
                     
         Activity currentActivity = athletes[selectedAthleteIDX].activity;
