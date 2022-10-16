@@ -159,7 +159,8 @@ public class AthleteManager : MonoBehaviour
     public void UpdateActivityProgressBar()
     {
         if (!athletes[selectedAthleteIDX].active) return;
-        
+        if (activityProgressBar == null) return;
+
         long unixTime = GetUnixTime();
                     
         Activity currentActivity = athletes[selectedAthleteIDX].activity;

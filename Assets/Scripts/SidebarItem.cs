@@ -13,6 +13,13 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public TextMeshProUGUI nameText;
     public GameObject popup;
 
+    [SerializeField] Image skin;
+    [SerializeField] Image body;
+    [SerializeField] Sprite skinSprite;
+    [SerializeField] Sprite bodySprite;
+
+    [SerializeField] ProgressBar progressBar;
+
     public bool hover = false;
 
     void Start()
@@ -23,7 +30,16 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void LateUpdate()
     {
         if (currentAthlete.athleteName != "") {
-            GetComponent<Image>().sprite = AM.athleteIcons[currentAthlete.iconIDX];
+
+            skin.sprite = skinSprite;
+            int[] s = AM.athletes[currentAthlete.id].skinRGB;
+            skin.color = new Color(s[0] / 255.0f, s[1] / 255.0f, s[2] / 255.0f);
+
+            body.sprite = bodySprite;
+            int[] b = AM.athletes[currentAthlete.id].bodyRGB;
+            body.color = new Color(b[0] / 255.0f, b[1] / 255.0f, b[2] / 255.0f);
+
+
             nameText.text = currentAthlete.athleteName;
             
             if (hover) {
@@ -34,6 +50,21 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 popup.SetActive(false);
             }
             currentAthlete = AM.athletes.Find(a => a.id == currentAthlete.id);
+
+            if (currentAthlete.active)
+            {
+                progressBar.gameObject.SetActive(true);
+
+                long unixTime = GetUnixTime();
+
+                Activity currentActivity = currentAthlete.activity;
+                progressBar.maximum = currentActivity.endUnix-currentActivity.startUnix; // activity length
+                progressBar.current = unixTime-currentActivity.startUnix; // time since start of activity
+            }
+            else
+            {
+                progressBar.gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -57,5 +88,12 @@ public class SidebarItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             AM.SetAthleteByID(currentAthlete.id);
         }
+    }
+
+    long GetUnixTime()
+    {
+        DateTime time = DateTime.Now;
+        long unixTime = ((DateTimeOffset)time).ToUnixTimeSeconds();
+        return unixTime;
     }
 }

@@ -31,6 +31,7 @@ public class AthleteCustomise : MonoBehaviour
     {
         AS = FindObjectOfType<AthleteSprite>();
         AM = FindObjectOfType<AthleteManager>();
+        selectedPart = AS.skin;
     }
 
     void Update()
@@ -57,19 +58,21 @@ public class AthleteCustomise : MonoBehaviour
         }
         if (selectedPart != null)
         {
-            selectedPartText.text = Capitalise(selectedPart.name);
             if (selectedPart.name == "skin")
             {
+                selectedPartText.text = "Adjust Skin Tone";
                 skinPalette.SetActive(true);
                 bodyPalette.SetActive(false);
             }
             else if (selectedPart.name == "body")
             {
+                selectedPartText.text = "Clothing Colour";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(true);
             }
             else if (selectedPart.name == "shoes")
             {
+                selectedPartText.text = "Shoes";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(false);
             }
@@ -78,7 +81,7 @@ public class AthleteCustomise : MonoBehaviour
         {
             skinPalette.SetActive(false);
             bodyPalette.SetActive(false);
-            selectedPartText.text = "No part selected";
+            selectedPartText.text = "";
         }
     }
 

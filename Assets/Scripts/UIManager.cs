@@ -14,7 +14,7 @@ public enum ButtonType {
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Image[] sideBarPlaceholders;
+    [SerializeField] SidebarItem[] sideBarItems;
     
     public TextMeshProUGUI selectedAthleteName;
     public TMP_InputField selectedAthleteNameInputField;
@@ -87,48 +87,43 @@ public class UIManager : MonoBehaviour
 
             for (int i = 0; i < AM.athletes.Count; i++)
             {
-                sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
+                sideBarItems[i].currentAthlete = AM.athletes[i];
             }
 
             if (AM.athletes[AM.selectedAthleteIDX].active)
             {
                 testRunButton.SetActive(false);
                 testStopRunButton.SetActive(true);
-                progressBar.SetActive(true);
+                if (progressBar != null) progressBar.SetActive(true);
             }
             else
             {
                 testRunButton.SetActive(true);
                 testStopRunButton.SetActive(false);
-                progressBar.SetActive(false);
+                if (progressBar != null) progressBar.SetActive(false);
             }
-
-            levelProgress.maximum = PM.player.xpNeeded;
-            levelProgress.current = PM.player.xp;
-            levelText.text = $"LVL {PM.player.level}";
-            creditText.text = $"Credits: {PM.player.credits}";
         }
         else if (SceneManager.GetActiveScene().name == "Customise")
         {
             for (int i = 0; i < AM.athletes.Count; i++)
             {
-                sideBarPlaceholders[i].GetComponent<SidebarItem>().currentAthlete = AM.athletes[i];
+                sideBarItems[i].currentAthlete = AM.athletes[i];
             }
 
             if (AM.athletes[AM.selectedAthleteIDX].active)
             {
-                progressBar.SetActive(true);
+                if (progressBar != null) progressBar.SetActive(true);
             }
             else
             {
-                progressBar.SetActive(false);
+                if (progressBar != null) progressBar.SetActive(false);
             }
-
-            levelProgress.maximum = PM.player.xpNeeded;
-            levelProgress.current = PM.player.xp;
-            levelText.text = $"LVL {PM.player.level}";
-            creditText.text = $"Credits: {PM.player.credits}";
         }
+
+        levelProgress.maximum = PM.player.xpNeeded;
+        levelProgress.current = PM.player.xp;
+        levelText.text = $"LVL {PM.player.level}";
+        creditText.text = $"{PM.player.credits}";
     }
 
     public void ToggleCurrentStatus() {
