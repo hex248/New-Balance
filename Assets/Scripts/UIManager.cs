@@ -45,13 +45,17 @@ public class UIManager : MonoBehaviour
 
     public void UIButtonPress(string buttonType)
     {
-        if (buttonType == "customise")
+        if (buttonType == "home")
+        {
+            GM.LoadScene("Main");
+        }
+        else if (buttonType == "customise")
         {
             GM.LoadScene("Customise");
         }
-        else if (buttonType == "home")
+        else if (buttonType == "shop")
         {
-            GM.LoadScene("Main");
+            GM.LoadScene("Shop");
         }
     }
 
