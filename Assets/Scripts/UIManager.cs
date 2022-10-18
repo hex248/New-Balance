@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         if (GM.newlyLoaded)
         {
             ShowDynamic();
-            selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
+            if (selectedAthleteNameInputField != null) selectedAthleteNameInputField.text = AM.selectedAthlete.athleteName;
         }
         
 

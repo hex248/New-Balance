@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+[ExecuteAlways]
+public class ShopItem : MonoBehaviour
+{
+    public Sprite preview;
+
+    public ItemType itemType;
+    public string itemName;
+    public int itemID;
+
+    void Update()
+    {
+        if (Application.isPlaying)
+        {
+            
+        }
+        else
+        {
+            transform.Find("Preview").GetComponent<Image>().sprite = preview;
+        }
+    }
+
+    public void Clicked()
+    {
+        FindObjectOfType<Shop>().PurchaseWindow(gameObject);
+    }
+}
