@@ -7,16 +7,15 @@ using TMPro;
 public class ShopPurchaseWindow : MonoBehaviour
 {
     [SerializeField] Image preview;
-
+    [SerializeField] TextMeshProUGUI itemNameText;
+    [SerializeField] TextMeshProUGUI itemPriceText;
     [SerializeField] GameObject insufficientFunds;
-
-    [SerializeField] TextMeshProUGUI priceText;
 
     [Header("")]
     public ItemType itemType;
     public string itemName;
-    public string id;
-    public int price;
+    public string itemID;
+    public int itemPrice;
     public Sprite previewImage;
 
     PlayerManager PM;
@@ -33,17 +32,24 @@ public class ShopPurchaseWindow : MonoBehaviour
     void Update()
     {
         preview.sprite = previewImage;
+        itemNameText.text = itemName;
+        itemPriceText.text = $"{itemPrice}";
+        preview.SetNativeSize();
     }
 
     public void Purchase()
     {
         if (itemType == ItemType.shoes)
         {
-            if (PM.player.credits >= price)
+            if (PM.player.credits >= itemPrice)
             {
-                PM.player.credits -= price;
-                PM.player.purchasedShoes.Add(id);
+                PM.player.credits -= itemPrice;
+                PM.player.purchasedShoes.Add(itemID);
                 FindObjectOfType<Shop>().HidePurchaseWindow();
+            }
+            else
+            {
+                insufficientFunds.SetActive(true);
             }
         }
     }

@@ -27,8 +27,10 @@ public class Shop : MonoBehaviour
         ShopItem item = itemObject.GetComponent<ShopItem>();
         purchaseWindow.itemType = item.itemType;
         purchaseWindow.itemName = item.itemName;
-        purchaseWindow.id; = item.itemID;
-        // purchaseWindow;
+        purchaseWindow.itemID = item.itemID;
+        purchaseWindow.itemPrice = item.price;
+        purchaseWindow.previewImage = item.preview;
+        
         purchaseWindow.gameObject.SetActive(true);
     }
 

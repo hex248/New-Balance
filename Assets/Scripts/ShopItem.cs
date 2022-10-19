@@ -10,7 +10,8 @@ public class ShopItem : MonoBehaviour
 
     public ItemType itemType;
     public string itemName;
-    public int itemID;
+    public string itemID;
+    public int price;
 
     void Update()
     {

@@ -123,6 +123,22 @@ public class UIManager : MonoBehaviour
                 if (progressBar != null) progressBar.SetActive(false);
             }
         }
+        else if (SceneManager.GetActiveScene().name == "Shop")
+        {
+            for (int i = 0; i < AM.athletes.Count; i++)
+            {
+                sideBarItems[i].currentAthlete = AM.athletes[i];
+            }
+
+            if (AM.athletes[AM.selectedAthleteIDX].active)
+            {
+                if (progressBar != null) progressBar.SetActive(true);
+            }
+            else
+            {
+                if (progressBar != null) progressBar.SetActive(false);
+            }
+        }
 
         levelProgress.maximum = PM.player.xpNeeded;
         levelProgress.current = PM.player.xp;
