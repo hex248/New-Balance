@@ -68,24 +68,28 @@ public class AthleteCustomise : MonoBehaviour
                 selectedPartText.text = "Adjust Skin Tone";
                 skinPalette.SetActive(true);
                 bodyPalette.SetActive(false);
+                shoeSelection.SetActive(false);
             }
             else if (selectedPart.name == "body")
             {
                 selectedPartText.text = "Clothing Colour";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(true);
+                shoeSelection.SetActive(false);
             }
             else if (selectedPart.name == "shoes")
             {
                 selectedPartText.text = "Shoes";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(false);
+                shoeSelection.SetActive(true);
             }
         }
         else
         {
             skinPalette.SetActive(false);
             bodyPalette.SetActive(false);
+            shoeSelection.SetActive(false);
             selectedPartText.text = "";
         }
 
@@ -106,6 +110,11 @@ public class AthleteCustomise : MonoBehaviour
         {
             AM.athletes[AM.selectedAthleteIDX].skinRGB = new int[] {(int)Mathf.Round(newColour.r * 255), (int)Mathf.Round(newColour.g * 255), (int)Mathf.Round(newColour.b * 255)};
         }
+    }
+    
+    public void ChangeShoe(LockerItem shoe)
+    {
+        AM.athletes[AM.selectedAthleteIDX].shoes = shoe.itemName;
     }
 
     string Capitalise(string word)

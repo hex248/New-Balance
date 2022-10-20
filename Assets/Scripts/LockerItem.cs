@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteAlways]
-public class ShopItem : MonoBehaviour
+public class LockerItem : MonoBehaviour
 {
     public Sprite preview;
 
@@ -14,7 +13,6 @@ public class ShopItem : MonoBehaviour
     public int price;
 
     public bool locked = false;
-    public bool purchased = false;
 
     void Update()
     {
@@ -26,19 +24,14 @@ public class ShopItem : MonoBehaviour
         {
             transform.Find("lock").gameObject.SetActive(false);
         }
-        if (purchased)
-        {
-            transform.Find("check").gameObject.SetActive(true);
-        }
-        else
-        {
-            transform.Find("check").gameObject.SetActive(false);
-        }
         transform.Find("Preview").GetComponent<Image>().sprite = preview;
     }
 
     public void Clicked()
     {
-        FindObjectOfType<Shop>().PurchaseWindow(gameObject);
+        if (!locked)
+        {
+            FindObjectOfType<AthleteCustomise>().ChangeShoe(this);
+        }
     }
 }

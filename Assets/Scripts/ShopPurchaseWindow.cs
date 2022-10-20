@@ -9,7 +9,7 @@ public class ShopPurchaseWindow : MonoBehaviour
     [SerializeField] Image preview;
     [SerializeField] TextMeshProUGUI itemNameText;
     [SerializeField] TextMeshProUGUI itemPriceText;
-    [SerializeField] GameObject insufficientFunds;
+    public GameObject insufficientFunds;
 
     [Header("")]
     public ItemType itemType;
@@ -44,7 +44,7 @@ public class ShopPurchaseWindow : MonoBehaviour
             if (PM.player.credits >= itemPrice)
             {
                 PM.player.credits -= itemPrice;
-                PM.player.purchasedShoes.Add(itemID);
+                PM.player.purchasedShoes.Add(itemName);
                 FindObjectOfType<Shop>().HidePurchaseWindow();
             }
             else
