@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteAlways]
 public class LockerItem : MonoBehaviour
 {
     public Sprite preview;
@@ -10,7 +11,6 @@ public class LockerItem : MonoBehaviour
     public ItemType itemType;
     public string itemName;
     public string itemID;
-    public int price;
 
     public bool locked = false;
 
@@ -19,10 +19,12 @@ public class LockerItem : MonoBehaviour
         if (locked)
         {
             transform.Find("lock").gameObject.SetActive(true);
+            GetComponent<Button>().interactable = false;
         }
         else
         {
             transform.Find("lock").gameObject.SetActive(false);
+            GetComponent<Button>().interactable = true;
         }
         transform.Find("Preview").GetComponent<Image>().sprite = preview;
     }

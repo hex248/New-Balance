@@ -45,7 +45,7 @@ public class Athlete
         this.skinRGB = new int[] {230,181,148};
         this.bodyRGB = new int[] {255,255,255};
         this.feetRGB = new int[] {255,255,255};
-        this.shoes = "";
+        this.shoes = "default";
     }
 }
 

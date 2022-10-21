@@ -5,18 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-// public enum Colors {
-//     red,
-//     orange,
-//     yellow,
-//     green,
-//     blue,
-//     purple,
-//     white,
-//     black,
-//     grey,
-// }
-
 public class AthleteCustomise : MonoBehaviour
 {
     AthleteSprite AS;
@@ -27,6 +15,7 @@ public class AthleteCustomise : MonoBehaviour
 
     [SerializeField] GameObject skinPalette;
     [SerializeField] GameObject bodyPalette;
+    [SerializeField] GameObject shoeSelection;
 
     [SerializeField] PurchaseWindow purchaseWindow;
 
@@ -50,11 +39,6 @@ public class AthleteCustomise : MonoBehaviour
         {
             selectedPart = AS.body;
             AS.body.GetComponent<AvatarClick>().clicked = false;
-        }
-        else if (AS.feet.GetComponent<AvatarClick>().clicked)
-        {
-            selectedPart = AS.feet;
-            AS.feet.GetComponent<AvatarClick>().clicked = false;
         }
         else if (AS.shoes.GetComponent<AvatarClick>().clicked)
         {
@@ -98,6 +82,11 @@ public class AthleteCustomise : MonoBehaviour
             GameObject paletteItem = GameObject.Find(PM.player.purchasedClothes[i]);
             if (paletteItem != null) paletteItem.GetComponent<PaletteItem>().locked = false;
         }
+        for (int i = 0; i < PM.player.purchasedShoes.Count; i++)
+        {
+            GameObject shoe = transform.Find($"Customisation Options/Shoes/{PM.player.purchasedShoes[i]}").gameObject;
+            if (shoe != null) shoe.GetComponent<LockerItem>().locked = false;
+        }
     }
 
     public void ChangeColour(Color newColour)
@@ -115,6 +104,7 @@ public class AthleteCustomise : MonoBehaviour
     public void ChangeShoe(LockerItem shoe)
     {
         AM.athletes[AM.selectedAthleteIDX].shoes = shoe.itemName;
+        Debug.Log(shoe.itemName);
     }
 
     string Capitalise(string word)

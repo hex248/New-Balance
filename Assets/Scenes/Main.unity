@@ -1530,6 +1530,7 @@ MonoBehaviour:
     xpNeeded: 0
     level: 0
     purchasedClothes: []
+    purchasedShoes: []
 --- !u!4 &905074375
 Transform:
   m_ObjectHideFlags: 0
@@ -1646,7 +1647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 105}
+  m_AnchoredPosition: {x: 0, y: 162.1}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939687183
@@ -2015,7 +2016,7 @@ SpriteRenderer:
   m_SortingLayerID: 1557267295
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1698696623906301260, guid: 137a3344f39a91d4ca450d37e63a7697, type: 3}
+  m_Sprite: {fileID: -1698696623906301260, guid: 99dd9d6281d5cbf45b16a5168ffcac89, type: 3}
   m_Color: {r: 0.3479886, g: 1, b: 0.39332414, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2730,7 +2731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1961457567}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1217470694
 Animator:
@@ -2791,7 +2792,7 @@ SpriteRenderer:
   m_SortingLayerID: 531558043
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8645900973460722274, guid: ca23bac3fec16324288197e827cb7f03, type: 3}
+  m_Sprite: {fileID: -8645900973460722274, guid: 1186953f4a5b3f3489b6fe6ae22007ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2893,7 +2894,7 @@ SpriteRenderer:
   m_SortingLayerID: 323043567
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5606351447977730624, guid: 9d14efbe81bdd834c916fd853af77ec0, type: 3}
+  m_Sprite: {fileID: -5606351447977730624, guid: a9bedff02582d7e42ba026f049b439c8, type: 3}
   m_Color: {r: 0.5213883, g: 0.083704144, b: 0.9339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3238,6 +3239,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   selectedAthleteIDX: 0
   athleteIcons:
@@ -3527,108 +3529,6 @@ MonoBehaviour:
   - {fileID: 1093940481}
   - {fileID: 481029672}
   - {fileID: 1961457566}
---- !u!1 &1577817144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1577817145}
-  - component: {fileID: 1577817147}
-  - component: {fileID: 1577817146}
-  m_Layer: 0
-  m_Name: feet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1577817145
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577817144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1961457567}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1577817146
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577817144}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9dbb214150cb4c94cb27dd2f96ac1231, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1577817147
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577817144}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 410265407
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -8687066663751153079, guid: fb4026fe67cccde44a9d764711c6fcbb, type: 3}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.54, y: 3.04}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &1742472427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9022779864926494730, guid: 745f873f6b47389488f562e1150e7f8b, type: 3}
@@ -3774,7 +3674,6 @@ Transform:
   m_Children:
   - {fileID: 1023820844}
   - {fileID: 1219924434}
-  - {fileID: 1577817145}
   - {fileID: 1217470693}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3793,5 +3692,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin: {fileID: 1023820842}
   body: {fileID: 1219924433}
-  feet: {fileID: 1577817144}
   shoes: {fileID: 1217470692}
