@@ -104,7 +104,6 @@ public class AthleteCustomise : MonoBehaviour
     public void ChangeShoe(LockerItem shoe)
     {
         AM.athletes[AM.selectedAthleteIDX].shoes = shoe.itemName;
-        Debug.Log(shoe.itemName);
     }
 
     string Capitalise(string word)

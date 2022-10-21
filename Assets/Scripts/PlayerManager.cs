@@ -21,6 +21,7 @@ public class Player
         this.xp = xp;
         this.xpNeeded = xpNeeded;
         this.level = level;
+        this.purchasedShoes.Add("Default");
     }
 }
 
@@ -64,7 +65,7 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator GraduallyIncreaseCredits(int target, float speed)
     {
-        while(player.credits < target)
+        while (player.credits < target)
         {
             player.credits++;
             yield return new WaitForSeconds(speed);

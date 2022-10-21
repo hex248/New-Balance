@@ -19,7 +19,7 @@ TextureImporter:
     second: Fresh Foam Hierro v6 GTX
   - first:
       213: 7574043656731186344
-    second: 5
+    second: Default
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -214,7 +214,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 5
+      name: Default
       rect:
         serializedVersion: 2
         x: 3624

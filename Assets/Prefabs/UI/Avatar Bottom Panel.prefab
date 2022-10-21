@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410441438345698017
 MonoBehaviour:
@@ -258,6 +258,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 8712027371298703820}
   popup: {fileID: 7219871481697471835}
@@ -374,6 +375,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 5827955800474178803}
   popup: {fileID: 6785953716757471132}
@@ -494,7 +496,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4545722115189326123
 MonoBehaviour:
@@ -893,7 +895,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5886804854622914701
 MonoBehaviour:
@@ -968,7 +970,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4279065809518583551
 MonoBehaviour:
@@ -1179,7 +1181,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468857788994496011
 MonoBehaviour:
@@ -1254,7 +1256,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8683377618585156807
 MonoBehaviour:
@@ -1329,7 +1331,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6497751192815502345
 MonoBehaviour:
@@ -1528,6 +1530,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 8725639047135400089}
   popup: {fileID: 118415353778325038}
@@ -2102,6 +2105,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 6141542268460121355}
   popup: {fileID: 6141542267963286955}
@@ -2146,7 +2150,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6141542267729197149
 MonoBehaviour:
@@ -2349,7 +2353,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6141542268021773815
 MonoBehaviour:
@@ -2780,7 +2784,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2437541861016064383
 MonoBehaviour:
@@ -3143,7 +3147,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4981726590479968253
 MonoBehaviour:
@@ -3290,6 +3294,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 9081801101426706814}
   popup: {fileID: 379512054591153945}
@@ -3470,7 +3475,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -95}
-  m_SizeDelta: {x: 650, y: 650}
+  m_SizeDelta: {x: 850, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6814454960944764721
 MonoBehaviour:
@@ -3617,6 +3622,7 @@ MonoBehaviour:
     skinRGB: 
     bodyRGB: 
     feetRGB: 
+    shoes: 
     active: 0
   nameText: {fileID: 780292416184763944}
   popup: {fileID: 7403432980186067864}
