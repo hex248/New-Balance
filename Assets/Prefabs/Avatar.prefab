@@ -460,6 +460,10 @@ MonoBehaviour:
   shoeObjects:
   - {fileID: 8995237329361516199}
   - {fileID: 8995237328686948158}
+  - {fileID: 396457540560793657}
+  - {fileID: 6733678483269602490}
+  - {fileID: 4293029466176798015}
+  - {fileID: 6952915253034081659}
 --- !u!1 &8995237328686948158
 GameObject:
   m_ObjectHideFlags: 0

@@ -141,12 +141,12 @@ public class AthleteManager : MonoBehaviour
                     {
                         // check how long the activity was
                         long activityDuration = a.activity.endUnix - a.activity.startUnix;
-                        // 1 second realtime = 1 credit & 1.5 xp
+                        // 60 second realtime = 1 credit & 1 xp
                         // calculate rewards
                         float creditMultiplier = 1.0f;
-                        int credits = (int)Mathf.Round(activityDuration * creditMultiplier);
-                        float xpMultiplier = 1.5f;
-                        int xp = (int)Mathf.Round(activityDuration * xpMultiplier);
+                        int credits = (int)Mathf.Round((activityDuration / 60) * creditMultiplier);
+                        float xpMultiplier = 1f;
+                        int xp = (int)Mathf.Round((activityDuration / 60) * xpMultiplier);
 
                         PM.AddCredits(credits);
                         PM.AddXP(xp);
@@ -165,7 +165,7 @@ public class AthleteManager : MonoBehaviour
         if (activityProgressBar == null) return;
 
         long unixTime = GetUnixTime();
-                    
+        
         Activity currentActivity = athletes[selectedAthleteIDX].activity;
         activityProgressBar.maximum = currentActivity.endUnix-currentActivity.startUnix; // activity length
         activityProgressBar.current = unixTime-currentActivity.startUnix; // time since start of activity
@@ -205,7 +205,7 @@ public class AthleteManager : MonoBehaviour
         long unixTime = GetUnixTime();
 
         // 10 mins in s is 600
-        long taskDuration = 60;//! * hours; //!CHANGE TO 600 WHEN DONE TESTING
+        long taskDuration = 3600 * hours; //!CHANGE TO 600 WHEN DONE TESTING
         long startTime = unixTime;
         long endTime = startTime + taskDuration;
 
