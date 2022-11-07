@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour
 
     public void StartActivity()
     {
-        AM.StartActivity(8, Sport.running);
+        AM.StartActivity(4, Sport.running);
     }
 
     public void StopActivity()
