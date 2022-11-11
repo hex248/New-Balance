@@ -196,7 +196,7 @@ public class AthleteManager : MonoBehaviour
         }
     }
 
-    public void StartActivity(int hours, Sport sport)
+    public void StartActivity(float hours, Sport sport)
     {
         SetStatusByID(selectedAthlete.id, true);
 
@@ -205,7 +205,13 @@ public class AthleteManager : MonoBehaviour
         long unixTime = GetUnixTime();
 
         // 10 mins in s is 600
-        long taskDuration = 3600 * hours; //!CHANGE TO 600 WHEN DONE TESTING
+        long taskDuration = (long)(3600 * hours);
+        Debug.Log(PlayerPrefs.GetString("testMode"));
+        if (PlayerPrefs.GetString("testMode") == "true")
+        {
+            taskDuration = (long)(hours * 60); // 1 realtime minute per hour
+        }
+
         long startTime = unixTime;
         long endTime = startTime + taskDuration;
 

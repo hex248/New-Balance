@@ -840,6 +840,14 @@ PrefabInstance:
       propertyPath: foregroundColour.r
       value: 0.29236382
       objectReference: {fileID: 0}
+    - target: {fileID: 3014700369980073516, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232432073376446566, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_text
+      value: 04:10
+      objectReference: {fileID: 0}
     - target: {fileID: 6972538614375312307, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
       propertyPath: m_SizeDelta.x
       value: 465
@@ -971,6 +979,14 @@ PrefabInstance:
     - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
       propertyPath: m_Color.r
       value: 0.29236382
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331619474610845825, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
+      propertyPath: m_text
+      value: 75%
       objectReference: {fileID: 0}
     - target: {fileID: 8546789239481889684, guid: 4439f0379b44ae2458e0fb3c485366ee, type: 3}
       propertyPath: m_fontSize

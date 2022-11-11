@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool allDataLoaded = false;
     public bool newlyLoaded = false;
     public int framesNewlyLoaded = 0;
+    public bool testMode = false;
     AthleteManager AM;
     PlayerManager PM;
     UIManager UIM;
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetString("testMode", $"{testMode}".ToLower());
         bool athletesLoaded = false;
         bool playerLoaded = false;
         AM = FindObjectOfType<AthleteManager>();
