@@ -49,21 +49,21 @@ public class AthleteCustomise : MonoBehaviour
         {
             if (selectedPart.name == "skin")
             {
-                selectedPartText.text = "Adjust Skin Tone";
+                selectedPartText.text = "Selected: Skin Tone";
                 skinPalette.SetActive(true);
                 bodyPalette.SetActive(false);
                 shoeSelection.SetActive(false);
             }
             else if (selectedPart.name == "body")
             {
-                selectedPartText.text = "Clothing Colour";
+                selectedPartText.text = "Selected: Clothing Colour";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(true);
                 shoeSelection.SetActive(false);
             }
             else if (selectedPart.name == "shoes")
             {
-                selectedPartText.text = "Shoes";
+                selectedPartText.text = "Selected: Shoes";
                 skinPalette.SetActive(false);
                 bodyPalette.SetActive(false);
                 shoeSelection.SetActive(true);

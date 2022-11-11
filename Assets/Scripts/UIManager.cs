@@ -142,7 +142,7 @@ public class UIManager : MonoBehaviour
 
         levelProgress.maximum = PM.player.xpNeeded;
         levelProgress.current = PM.player.xp;
-        levelText.text = $"LVL {PM.player.level}";
+        levelText.text = $"level {PM.player.level}";
         creditText.text = $"{PM.player.credits}";
     }
 

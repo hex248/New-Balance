@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            player = new Player(0,0,100,1);
+            player = new Player(100,0,100,1);
             GS.SavePlayer(player);
             return true;
         }
