@@ -143,10 +143,12 @@ public class AthleteManager : MonoBehaviour
                         long activityDuration = a.activity.endUnix - a.activity.startUnix;
                         // 60 second realtime = 1 credit & 1 xp
                         // calculate rewards
-                        float creditMultiplier = 1.0f;
-                        int credits = (int)Mathf.Round((activityDuration / 60) * creditMultiplier);
-                        float xpMultiplier = 1f;
-                        int xp = (int)Mathf.Round((activityDuration / 60) * xpMultiplier);
+                        float creditMultiplier = 5.0f;
+                        int credits = (int)Mathf.Round((activityDuration) * creditMultiplier);
+                        Debug.Log(credits);
+                        Debug.Log(activityDuration);
+                        float xpMultiplier = 5.0f;
+                        int xp = (int)Mathf.Round((activityDuration) * xpMultiplier);
 
                         PM.AddCredits(credits);
                         PM.AddXP(xp);

@@ -160,7 +160,8 @@ public class UIManager : MonoBehaviour
 
     public void StartActivity()
     {
-        AM.StartActivity(0.5f, Sport.running);
+        if (PlayerPrefs.GetString("testMode") == "true") AM.StartActivity(0.5f, Sport.running);
+        else AM.StartActivity(4f, Sport.running);
     }
 
     public void StopActivity()
